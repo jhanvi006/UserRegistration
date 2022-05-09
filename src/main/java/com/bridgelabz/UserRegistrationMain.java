@@ -5,5 +5,6 @@ public class UserRegistrationMain {
         System.out.println("Welcome to User Registration page!");
         System.out.println("----------------------------------");
         UserRegistration.validFirstName();
+        UserRegistration.validLastName();
     }
 }
