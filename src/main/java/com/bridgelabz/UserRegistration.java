@@ -22,16 +22,30 @@ public class UserRegistration {
     }
     public static boolean validLastName() {
         System.out.print("Enter the Last Name : ");
-        String name = sc.next();
+        String lastName = sc.next();
         String regex = "^[A-Z]{1}[a-z]{2,}$";
         Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(name);
+        Matcher m = p.matcher(lastName);
         boolean r = m.matches();
 
         if (r)
             System.out.println("Last name is valid.");
         else
             System.out.println("Last name is invalid.");
+        return r;
+    }
+    public static boolean validEmail() {
+        System.out.print("Enter the Last Name : ");
+        String email = sc.next();
+        String regex = "^[a-z]{3}[a-zA-Z0-9.]{1,}+@+[a-z.]{2,}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(email);
+        boolean r = m.matches();
+
+        if (r)
+            System.out.println("Email is valid.");
+        else
+            System.out.println("Email is invalid.");
         return r;
     }
 }

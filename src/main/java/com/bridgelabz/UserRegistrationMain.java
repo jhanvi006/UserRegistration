@@ -6,5 +6,6 @@ public class UserRegistrationMain {
         System.out.println("----------------------------------");
         UserRegistration.validFirstName();
         UserRegistration.validLastName();
+        UserRegistration.validEmail();
     }
 }
