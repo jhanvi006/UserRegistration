@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class UserRegistration {
     public static final Scanner sc = new Scanner(System.in);
     public static boolean validFirstName() {
-        System.out.print("Enter the First Name : ");
+        System.out.print("Enter the First Name: ");
         String name = sc.next();
         String regex = "^[A-Z]{1}[a-z]{2,}$";
         Pattern p = Pattern.compile(regex);
@@ -21,7 +21,7 @@ public class UserRegistration {
         return r;
     }
     public static boolean validLastName() {
-        System.out.print("Enter the Last Name : ");
+        System.out.print("Enter the Last Name: ");
         String lastName = sc.next();
         String regex = "^[A-Z]{1}[a-z]{2,}$";
         Pattern p = Pattern.compile(regex);
@@ -35,7 +35,7 @@ public class UserRegistration {
         return r;
     }
     public static boolean validEmail() {
-        System.out.print("Enter the Email : ");
+        System.out.print("Enter the Email: ");
         String email = sc.next();
         String regex = "^[a-z]{3}[a-zA-Z0-9.]{0,}+@bl.co+[a-z.]{0,}$";
         Pattern p = Pattern.compile(regex);
@@ -46,6 +46,20 @@ public class UserRegistration {
             System.out.println("Email is valid.");
         else
             System.out.println("Email is invalid.");
+        return r;
+    }
+    public static boolean validMobileNo() {
+        System.out.print("Enter the mobile no.: ");
+        String mobileNo = sc.next();
+        String regex = "^[1-9]{1}[0-9]{1,2}\\s{0,1}[1-9]{1}[0-9]{9}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(mobileNo);
+        boolean r = m.matches();
+
+        if (r)
+            System.out.println("Mobile no. is valid.");
+        else
+            System.out.println("Mobile no. is invalid.");
         return r;
     }
 }
