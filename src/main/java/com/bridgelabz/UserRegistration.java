@@ -65,7 +65,7 @@ public class UserRegistration {
     public static boolean validPassword() {
         System.out.print("Enter the password: ");
         String password = sc.nextLine();
-        String regex = "^[a-zA-Z0-9@._-]{8,}$";
+        String regex = "^(?=.*?[A-Z])([a-zA-Z0-9@._-]).{8,}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(password);
         boolean r = m.matches();
@@ -73,7 +73,7 @@ public class UserRegistration {
         if (r)
             System.out.println("Password is valid.");
         else
-            System.out.println("Password is invalid. It should contain at least 8 characters.");
+            System.out.println("Password is invalid.");
         return r;
     }
 }
