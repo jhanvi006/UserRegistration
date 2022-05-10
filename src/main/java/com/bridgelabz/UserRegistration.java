@@ -62,4 +62,18 @@ public class UserRegistration {
             System.out.println("Mobile no. is invalid.");
         return r;
     }
+    public static boolean validPassword() {
+        System.out.print("Enter the password: ");
+        String password = sc.nextLine();
+        String regex = "^[a-zA-Z0-9@._-]{8,}$";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(password);
+        boolean r = m.matches();
+
+        if (r)
+            System.out.println("Password is valid.");
+        else
+            System.out.println("Password is invalid. It should contain at least 8 characters.");
+        return r;
+    }
 }

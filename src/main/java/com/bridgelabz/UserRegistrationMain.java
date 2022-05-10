@@ -8,5 +8,6 @@ public class UserRegistrationMain {
         UserRegistration.validLastName();
         UserRegistration.validEmail();
         UserRegistration.validMobileNo();
+        UserRegistration.validPassword();
     }
 }
