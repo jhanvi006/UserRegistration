@@ -4,10 +4,10 @@ public class UserRegistrationMain {
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration page!");
         System.out.println("----------------------------------");
-        UserRegistration.validFirstName();
-        UserRegistration.validLastName();
-        UserRegistration.validEmail();
-        UserRegistration.validMobileNo();
-        UserRegistration.validPassword();
+//        UserRegistration.validFirstName();
+//        UserRegistration.validLastName();
+//        UserRegistration.validEmail();
+//        UserRegistration.validMobileNo();
+//        UserRegistration.validPassword();
     }
 }
