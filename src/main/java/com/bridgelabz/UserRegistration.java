@@ -37,7 +37,7 @@ public class UserRegistration {
     public static boolean validEmail(String email) {
 //        System.out.print("Enter the Email: ");
 //        String email = sc.nextLine();
-        String regex = "^[a-z]{3}[a-zA-Z0-9.]{0,}+@[a-zA-Z0-9]{2,}(?:\\.[a-zA-Z0-9-]+)*$";
+        String regex = "^[a-z]{3}[a-zA-Z0-9-.+_]{0,}+@[a-zA-Z0-9]{1,}(?:\\.([a-zA-Z0-9-]+){2,})*$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(email);
         boolean r = m.matches();

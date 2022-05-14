@@ -3,6 +3,10 @@ package com.bridgelabz;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class UserRegistrationTest {
     UserRegistration userRegistration = new UserRegistration();
 
@@ -43,7 +47,7 @@ public class UserRegistrationTest {
     }
     @Test
     public void givenEmail_WhenFalse_ShouldReturnTrue(){
-        boolean result = userRegistration.validEmail("jhanvi@g");
+        boolean result = userRegistration.validEmail("jhanvi@.google");
         Assertions.assertFalse(result);
     }
     @Test
@@ -55,5 +59,28 @@ public class UserRegistrationTest {
     public void givenPassword_WhenFalse_ShouldReturnTrue(){
         boolean result = userRegistration.validPassword("jhanvi.K@00");
         Assertions.assertFalse(result);
+    }
+
+    /*  Test cases for valid emails */
+    @Test
+    public void givenEmailList_WhenAllTrue_ShouldReturnTrue(){
+        ArrayList<String> emailList = new ArrayList<>(Arrays.asList("abc@yahoo.com", "abc-100@yahoo.com",
+                "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au",
+                "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"));
+        for (int i=0; i<emailList.size(); i++) {
+            boolean result = userRegistration.validEmail(emailList.get(i));
+            Assertions.assertTrue(result);
+        }
+    }
+    /*  Test cases for invalid emails */
+    @Test
+    public void givenEmailList_WhenAllFalse_ShouldReturnTrue(){
+        ArrayList<String> emailList = new ArrayList<>(Arrays.asList("abc", "abc@.com.my",
+                "abc123@gmail.a", "abc123@.com", "abc@.com.com", ".abc@abc.com",
+                "abc()*@gmail.com", "abc@%*.com", "abc@abc@gmail.com"));
+        for (int i=0; i<emailList.size(); i++) {
+            boolean result = userRegistration.validEmail(emailList.get(i));
+            Assertions.assertFalse(result);
+        }
     }
 }
