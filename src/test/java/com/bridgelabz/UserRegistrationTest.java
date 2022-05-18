@@ -12,27 +12,27 @@ public class UserRegistrationTest {
     /*  Test for valid details  */
     @Test
     public void givenFirstName_WhenTrue_ShouldReturnTrue() throws InvalidUserException {
-        String result = userRegistration.validFirstName("Jhanvi");
+        String result = String.valueOf(userRegistration.validFirstName.validate("Jhanvi"));
         Assertions.assertEquals("First name is valid.", result);
     }
     @Test
     public void givenLastName_WhenTrue_ShouldReturnTrue() throws InvalidUserException {
-        String result = userRegistration.validLastName("Kanakhara");
+        String result = String.valueOf(userRegistration.validLastName.validate("Kanakhara"));
         Assertions.assertEquals("Last name is valid.", result);
     }
     @Test
     public void givenEmail_WhenTrue_ShouldReturnTrue() throws InvalidUserException {
-        String result = userRegistration.validEmail("jhanvi@gmail.com");
+        String result = String.valueOf(userRegistration.validEmail.validate("jhanvi@gmail.com"));
         Assertions.assertEquals("Email is valid.", result);
     }
     @Test
     public void givenMobileNo_WhenTrue_ShouldReturnTrue() throws InvalidUserException {
-        String result = userRegistration.validMobileNo("91 7878454502");
+        String result = String.valueOf(userRegistration.validMobileNo.validate("91 7878454502"));
         Assertions.assertEquals("Mobile no. is valid.", result);
     }
     @Test
     public void givenPassword_WhenTrue_ShouldReturnTrue() throws InvalidUserException {
-        String result = userRegistration.validPassword("jhanviK@00");
+        String result = String.valueOf(userRegistration.validPassword.validate("jhanviK@00"));
         Assertions.assertEquals("Password is valid.", result);
     }
 
@@ -40,7 +40,7 @@ public class UserRegistrationTest {
     @Test
     public void givenFirstName_WhenFalse_ShouldReturnTrue()  {
         try {
-            String result = userRegistration.validFirstName("jhanvi");
+            String result = String.valueOf(userRegistration.validFirstName.validate("jhanvi"));
             Assertions.assertEquals("First name is invalid.", result);
         }
         catch (InvalidUserException e){
@@ -50,7 +50,7 @@ public class UserRegistrationTest {
     @Test
     public void givenLastName_WhenFalse_ShouldReturnTrue() {
         try {
-            String result = userRegistration.validLastName("jk");
+            String result = String.valueOf(userRegistration.validLastName.validate("jk"));
             Assertions.assertEquals("Last name is invalid.", result);
         }
         catch (InvalidUserException e){
@@ -60,7 +60,7 @@ public class UserRegistrationTest {
     @Test
     public void givenEmail_WhenFalse_ShouldReturnTrue() {
         try {
-            String result = userRegistration.validEmail("jhanvi@.google");
+            String result = String.valueOf(userRegistration.validEmail.validate("jhanvi@.google"));
             Assertions.assertEquals("Email is invalid.", result);
         }
         catch (InvalidUserException e){
@@ -70,7 +70,7 @@ public class UserRegistrationTest {
     @Test
     public void givenMobileNo_WhenFalse_ShouldReturnTrue() {
         try {
-            String result = userRegistration.validMobileNo("91 78784545020");
+            String result = String.valueOf(userRegistration.validMobileNo.validate("91 78784545020"));
             Assertions.assertEquals("Mobile no. is invalid.", result);
         }
         catch (InvalidUserException e){
@@ -80,7 +80,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPassword_WhenFalse_ShouldReturnTrue() {
         try {
-            String result = userRegistration.validPassword("jhanvi.K@00");
+            String result = String.valueOf(userRegistration.validPassword.validate("jhanvi.K@00"));
             Assertions.assertEquals("Password is invalid.", result);
         }
         catch (InvalidUserException e){
@@ -95,7 +95,7 @@ public class UserRegistrationTest {
                 "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net", "abc.100@abc.com.au",
                 "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"));
         for (int i = 0; i < emailList.size(); i++) {
-            String result = userRegistration.validEmail(emailList.get(i));
+            String result = String.valueOf(userRegistration.validEmail.validate(emailList.get(i)));
             Assertions.assertEquals("Email is valid.", result);
         }
     }
@@ -108,7 +108,7 @@ public class UserRegistrationTest {
                     "abc123@gmail.a", "abc123@.com", "abc@.com.com", ".abc@abc.com",
                     "abc()*@gmail.com", "abc@%*.com", "abc@abc@gmail.com"));
             for (int i = 0; i < emailList.size(); i++) {
-                String result = userRegistration.validEmail(emailList.get(i));
+                String result = String.valueOf(userRegistration.validEmail.validate(emailList.get(i)));
                 Assertions.assertEquals("Email is invalid.", result);
             }
         }
