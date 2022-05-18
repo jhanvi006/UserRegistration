@@ -88,6 +88,38 @@ public class UserRegistrationTest {
         }
     }
 
+    /*  Test cases for empty or null values */
+    @Test
+    public void givenFirstName_WhenNull_ShouldReturnNull()  {
+        try {
+            String result = String.valueOf(userRegistration.validFirstName.validate(null));
+            Assertions.assertEquals(InvalidUserException.ExceptionType.NULL, result);
+        }
+        catch (InvalidUserException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    @Test
+    public void givenLastName_WhenEmpty_ShouldReturnEmpty() {
+        try {
+            String result = String.valueOf(userRegistration.validLastName.validate(""));
+            Assertions.assertEquals(InvalidUserException.ExceptionType.EMPTY, result);
+        }
+        catch (InvalidUserException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    @Test
+    public void givenEmail_WhenEmpty_ShouldReturnEmpty() {
+        try {
+            String result = String.valueOf(userRegistration.validEmail.validate(""));
+            Assertions.assertEquals(InvalidUserException.ExceptionType.EMPTY, result);
+        }
+        catch (InvalidUserException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
     /*  Test cases for valid emails */
     @Test
     public void givenEmailList_WhenAllTrue_ShouldReturnTrue() throws InvalidUserException {
@@ -116,5 +148,8 @@ public class UserRegistrationTest {
             System.out.println(e.getMessage());
         }
     }
+
+    /*  Parameterised Junit test  */
+//    @runWith()
 }
 
