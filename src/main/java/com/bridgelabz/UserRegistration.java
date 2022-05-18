@@ -99,7 +99,8 @@ public class UserRegistration {
             throw new InvalidUserException(InvalidUserException.ExceptionType.EMPTY, "Invalid Input");
         } else {
             try {
-                String regex = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[a-z])(?!.*[<>`])(?=[^.,:;'!@#$%^&*_]*[.,:;'!@#$%^&*_][^.,:;'!@#$%^&*_]*$).{8,}$";
+                String regex = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[a-z])(?!.*[<>`])" +
+                        "(?=[^.,:;'!@#$%^&*_]*[.,:;'!@#$%^&*_][^.,:;'!@#$%^&*_]*$).{8,}$";
                 Pattern p = Pattern.compile(regex);
                 Matcher m = p.matcher(password);
                 boolean r = m.matches();
